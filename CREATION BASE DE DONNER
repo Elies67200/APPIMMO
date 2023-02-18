@@ -1,0 +1,57 @@
+// Connexion à la base de données
+$conn = mysqli_connect("localhost", "utilisateur", "motdepasse", "ma_base_de_donnees");
+
+// Création de la table 'appartements'
+$sql = "CREATE TABLE appartements (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        adresse VARCHAR(50) NOT NULL,
+        complement VARCHAR(50),
+        ville VARCHAR(30) NOT NULL,
+        code_postal VARCHAR(10) NOT NULL,
+        prix_charges DECIMAL(10, 2) NOT NULL,
+        loyer DECIMAL(10, 2) NOT NULL,
+        depot_garantie DECIMAL(10, 2) NOT NULL
+    )";
+
+if (mysqli_query($conn, $sql)) {
+    echo "La table 'appartements' a été créée avec succès.";
+} else {
+    echo "Erreur lors de la création de la table : " . mysqli_error($conn);
+}
+
+// Création de la table 'locataires'
+$sql = "CREATE TABLE locataires (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nom VARCHAR(30) NOT NULL,
+        prenom VARCHAR(30) NOT NULL,
+        adresse VARCHAR(50) NOT NULL,
+        complement VARCHAR(50),
+        ville VARCHAR(30) NOT NULL,
+        code_postal VARCHAR(10) NOT NULL,
+        telephone VARCHAR(20),
+        email VARCHAR(50),
+        depot_garantie_payee BOOLEAN DEFAULT FALSE,
+        id_appartement INT(6) UNSIGNED,
+        FOREIGN KEY (id_appartement) REFERENCES appartements(id)
+    )";
+
+if (mysqli_query($conn, $sql)) {
+    echo "La table 'locataires' a été créée avec succès.";
+} else {
+    echo "Erreur lors de la création de la table : " . mysqli_error($conn);
+}
+
+// Création de la table 'paiements'
+$sql = "CREATE TABLE paiements (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        date_paiement DATE NOT NULL,
+        montant DECIMAL(10, 2) NOT NULL,
+        id_locataire INT(6) UNSIGNED,
+        FOREIGN KEY (id_locataire) REFERENCES locataires(id)
+    )";
+
+if (mysqli_query($conn, $sql)) {
+    echo "La table 'paiements' a été créée avec succès.";
+} else {
+    echo "Erreur lors de la création de la table : " . mysqli_error($conn);
+}
