@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Gestion des loyers</title>
+  </head>
+  <body>
+    <h1>Gestion des loyers</h1>
+    <nav>
+      <ul>
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="appartements.php">Appartements</a></li>
+        <li><a href="locataires.php">Locataires</a></li>
+        <li><a href="loyers.php">Loyers</a></li>
+        <li><a href="quittances.php">Quittances</a></li>
+        <li><a href="bilan.php">Bilan</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Accueil</h2>
+      <p>Bienvenue sur l'application de gestion des loyers.</p>
+    </main>
+    <footer>
+      <p>Réalisé par [Nom de l'agence] &copy; 2023</p>
+    </footer>
+  </body>
+</html>
