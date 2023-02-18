@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+  </head>
+  <body>
+    <h1>Connexion</h1>
+    <form action="login.php" method="post">
+      <label for="username">Nom d'utilisateur :</label>
+      <input type="text" name="username" id="username" required><br><br>
+      <label for="password">Mot de passe :</label>
+      <input type="password" name="password" id="password" required><br><br>
+      <input type="submit" value="Connexion">
+    </form>
+    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Validation du formulaire côté serveur
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        if ($username == "admin" && $password == "admin123") {
+          // Authentification réussie
+          session_start();
+          $_SESSION["username"] = $username;
+          header("Location: dashboard.php");
+        } else {
+          // Erreur d'authentification
+          echo "<p>Nom d'utilisateur ou mot de passe incorrect.</p>";
+        }
+      }
+    ?>
+  </body>
+</html>
