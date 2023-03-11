@@ -1,14 +1,5 @@
 <!DOCTYPE html>
-"environments": {
-    "test": {
-      "formation": {
-          "test": {
-            "quantity": 1,
-            "size": "standard-1x"
-          }
-      }
-   }
-}
+
 <html lang="fr">
   <head>
     <meta charset="UTF-8">
@@ -34,4 +25,14 @@
       <p>Réalisé par [Nom de l'agence] &copy; 2023</p>
     </footer>
   </body>
+  "environments": {
+    "test": {
+      "formation": {
+          "test": {
+            "quantity": 1,
+            "size": "standard-1x"
+          }
+      }
+   }
+}
 </html>
