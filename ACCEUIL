@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+"environments": {
+    "test": {
+      "formation": {
+          "test": {
+            "quantity": 1,
+            "size": "standard-1x"
+          }
+      }
+   }
+}
 <html lang="fr">
   <head>
     <meta charset="UTF-8">
